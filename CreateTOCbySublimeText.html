@@ -1,5 +1,4 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><link href='https://dl.dropboxusercontent.com/u/6033699/st_markdown.css' rel='stylesheet' type='text/css'><title>Sublime TextによるTOC生成</title></head><body>
-<h1>Sublime TextによるTOC生成</h1>
+<!DOCTYPE html><html><head><meta charset="utf-8"><link href='https://dl.dropboxusercontent.com/u/6033699/st_markdown.css' rel='stylesheet' type='text/css'><title>CreateTOCbySublimeText</title></head><body><h1>Sublime TextによるTOC生成</h1>
 
 <div class="toc">
 <ul>
@@ -19,6 +18,7 @@
 </ul>
 </li>
 <li><a href="#残る課題">残る課題</a></li>
+<li><a href="#Writer">Writer</a></li>
 </ul>
 </div>
 <h2 id="参考"><a name="user-content-参考" href="#参考" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>参考</h2>
@@ -125,4 +125,6 @@ div.toc li:before { content: counters(item, &ldquo;.&rdquo;); counter-increment:
 <p>この際、<code>H1</code>をMarkdownで書くとそれ込みで連番化されるので、ここだけHTMLで書いたほうがよりよいでしょう。目次化する見出しレベルを指定する方法は見つかりませんでした。</p>
 <h2 id="残る課題"><a name="user-content-残る課題" href="#残る課題" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>残る課題</h2>
 <p>この方法で生成したHTMLの<code>title</code>要素は、ファイル名が割り当てられます。ファイル名を日本語にすることは好ましくないため、タイトルが英語になってしまうことになります。</p>
-<p>Markdown Previewには、<code>title</code>要素を指定するために、Python Markdownのmeta拡張およびYAML Front Matterが用意されています。しかし、どちらも正常に展開することができませんでした。これは課題として持ち越し、生成されたHTMLファイルの<code>title</code>要素を手動で書き換えています。</p></body></html>
+<p>Markdown Previewには、<code>title</code>要素を指定するために、Python Markdownのmeta拡張およびYAML Front Matterが用意されています。しかし、どちらも正常に展開することができませんでした。これは課題として持ち越し、生成されたHTMLファイルの<code>title</code>要素を手動で書き換えています。</p>
+<h2 id="Writer"><a name="user-content-Writer" href="#Writer" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>Writer</h2>
+<p>catfist (@<a href="https://twitter.com/catfist">Twitter</a>)</p></body></html>
