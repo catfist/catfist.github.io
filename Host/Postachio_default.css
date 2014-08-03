@@ -528,7 +528,8 @@ ul.tags li {
 .post ul.tags p {
   float: left;
   margin-left: 10px;
-  color: #606060;
+  margin-right: 5px;
+  color: #9e9e9e;
 }
 .pagination {
   width: 100%;
