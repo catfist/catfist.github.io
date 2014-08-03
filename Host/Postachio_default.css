@@ -408,6 +408,9 @@ h6 {
 .post .image {
   margin-top: 20px;
 }
+.post p.muted {
+  text-align: right;
+}
 .post h1 {
   font-size: 28px;
   margin-top: 15px;
