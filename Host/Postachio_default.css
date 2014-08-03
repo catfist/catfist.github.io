@@ -525,6 +525,11 @@ ul.tags li {
   font-size: 14px;
   line-height: 22px;
 }
+.post ul.tags p {
+  float: left;
+  margin-left: 10px;
+  color: #606060;
+}
 .pagination {
   width: 100%;
   height: 30px;
