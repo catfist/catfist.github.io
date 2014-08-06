@@ -408,9 +408,6 @@ h6 {
 .post .image {
   margin-top: 20px;
 }
-.post p.muted {
-  text-align: right;
-}
 .post h1 {
   font-size: 28px;
   margin-top: 15px;
@@ -524,12 +521,6 @@ ul.tags li {
 .post ul.tags {
   font-size: 14px;
   line-height: 22px;
-}
-.post ul.tags p {
-  float: left;
-  margin-left: 10px;
-  margin-right: 5px;
-  color: #9e9e9e;
 }
 .pagination {
   width: 100%;
