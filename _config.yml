@@ -4,7 +4,7 @@ kramdown:
   auto_ids:      true
   toc_levels:    2..6
 highlighter: pygments
-url: http://catfist.github.io/SandBox
+url: http://catfist.github.io
 baseurl: /sandbox
 permalink: /:title.html
 paginate: 8
