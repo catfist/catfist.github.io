@@ -1,0 +1,22 @@
+---
+layout: default
+---
+<h1>{{ page.title }}</h1>
+
+<div class="post">
+{{ content }}
+</div>
+
+<p class="meta">update: {{ page.date | date_to_string }}</p>
+
+<div class="keep-in-touch">
+  <p>
+    {% if site.owner.twitter %}
+    Twitter: <a href="https://twitter.com/{{site.owner.twitter}}">@{{ site.owner.twitter }}</a>
+    {% endif %}
+  </p>
+</div>
+
+{% if site.disqus_shortname %}
+{% include disqus_comments.html %}
+{% endif %}

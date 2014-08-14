@@ -1,0 +1,39 @@
+name: 長文レポート置き場
+markdown: kramdown
+kramdown:
+  auto_ids:      true
+  toc_levels:    2..6
+highlighter: pygments
+url: http://catfist.github.io/SandBox
+baseurl: /sandbox
+permalink: /:title.html
+paginate: 8
+description: "主にテキストエディタ関係で調べたことを書きます。長いです。"
+
+# intro: White Paper is a Jekyll theme most suited to be used on tech blogs that like their content to shine.
+logo:             logo.png
+disqus_shortname:
+# url: http://gotchacode.com
+#Comment out url when working locally to resolve base urls correctly
+#url:
+
+# Owner/author information
+owner:
+  name:           catfist
+  avatar:         http://catfist.github.io/Host/icon/favicon64.ico
+  email:          catfist.m@gmail.com
+  # Social networking links used in footer. Update and remove as you like.
+  twitter: catfist
+  github:
+  stackexchange:
+  # For Google Authorship https://plus.google.com/authorship
+  google_plus:
+
+# Analytics and webmaster tools stuff goes here
+google_analytics: UA-1488654-7
+google_verify:
+# https://ssl.bing.com/webmaster/configure/verify/ownership Option 2 content= goes here
+bing_verify:
+
+# Links to include in top navigation
+# For external links add external: true
