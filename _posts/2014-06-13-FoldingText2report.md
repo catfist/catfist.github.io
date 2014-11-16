@@ -264,31 +264,27 @@ FoldingTextの強みは、構造的な文書の作成にあります。Markdown�
 ### 構造レベルと親子関係 {#structurelevel_parentsandchildren}
 最初に、FoldingTextは、HTML文書を作成するようデザインされてはいないと述べました。これは、HTMLにおける、**ブロック要素**と**インライン要素**の概念をほぼ無視しているためです。例えば、次のテキストをご覧ください。
 
-```
-- list
-- list
-- list
-```
+	- list
+	- list
+	- list
 
 これはMarkdownリストであり、HTML変換すると、ひとつの`ul`タグで括られるブロック要素になります。その場合のソースは以下の通りです。
 
-```
-<ul>
-	<li>list</li>
-	<li>list</li>
-	<li>list</li>
-</ul>
-```
+<pre><code>
+&lt;ul&gt;
+	&lt;li&gt;list&lt;/li&gt;
+	&lt;li&gt;list&lt;/li&gt;
+	&lt;li&gt;list&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
 
 しかし、FoldingTextにおいては、このような解釈にほとんど意味がありません。
 
 むしろ重要なのは、**行同士の関係**における、**構造レベル**および**親子**の概念です。次のテキストをご覧ください。
 
-```
-- list1
-	- list2
-		- list3
-```
+	- list1
+		- list2
+			- list3
 
 このテキストにおいては、各行に構造レベルの差があります。すなわち、各行は「list1 < list2 < list3」の構造レベルを持ちます。
 
@@ -311,13 +307,11 @@ FoldingTextにおける**行の種類**には、次のようなものがあり�
 
 例えば、以下のようなテキストにおいては、各行に親子関係が成立しています。
 
-```
-# Heading1
+	# Heading1
 
-Paragraph1
+	Paragraph1
 
-- List1
-```
+	- List1
 
 親子関係をツリー構造で整理すると、以下の通りです。
 
@@ -350,23 +344,21 @@ List1はParagraph1の子であり、Paragraph1はHeading1の子であり、List1
 #### 構造レベルと親子関係の例 {#examplestructure}
 以下のような文書があるとします。
 
-```
-# Heading1
+	# Heading1
 
-## Heading2-1
-Paragraph1
+	## Heading2-1
+	Paragraph1
 
-- list1-1
-	- list1-2
+	- list1-1
+		- list1-2
 
-### Heading3
-Paragraph2-1
-	Paragraph2-2
+	### Heading3
+	Paragraph2-1
+		Paragraph2-2
 
-- list2-1
-	- list2-2
-		- list2-3
-```
+	- list2-1
+		- list2-2
+			- list2-3
 
 この文書の**親子関係**は、以下の通りです。
 
@@ -386,19 +378,17 @@ Paragraph1とlist1-1が親子関係にある一方、Paragraph2-2とlist2-1が�
 
 さらに、構造レベルを以下に示します。行頭の数字が等しいアイテムは、同じ構造レベルを持ちます。
 
-```
-1.Heading1
-	2.Heading2-1
-			4.Paragraph1
-				5.list1-1
-					6.list1-2
-		3.Heading3
-			4.Paragraph2-1
-				5.Paragraph2-2
-				5.list2-1
-					6.list2-2
-						7.list2-3
-```
+	1.Heading1
+		2.Heading2-1
+				4.Paragraph1
+					5.list1-1
+						6.list1-2
+			3.Heading3
+				4.Paragraph2-1
+					5.Paragraph2-2
+					5.list2-1
+						6.list2-2
+							7.list2-3
 
 構造レベル5の部分に注目してください。Paragraph2-2とlist2-1が親子関係とみなされないのは、**構造レベルが等しい**ためです。このように、同じ親と等しい構造レベルを持つ行同士は、**兄弟関係**になります。
 
@@ -433,63 +423,53 @@ FoldingTextにおける文書は、このような、Branchの集合であるツ
 
 例えば、以下のような文書があるとします。
 
-```
-- list1
-	- list2
-		- list3
-	- list4
-		- list5
-```
+	- list1
+		- list2
+			- list3
+		- list4
+			- list5
 
 list4に対して「Move Branch Right」を実行すると、以下のようになります。
 
-```
-- list1
-	- list2
-		- list3
-		- list4
-			- list5
-```
+	- list1
+		- list2
+			- list3
+			- list4
+				- list5
 
 その他の行に対しては、操作結果が不正な構造になるため、「Move Branch Right」は無効です。
 
 また、list2に対して「Move Branch Left」を実行した場合は、以下のようになります。
 
-```
-- list1
-	- list4
-		- list5
-- list2
-	- list3
-```
+	- list1
+		- list4
+			- list5
+	- list2
+		- list3
 
 list1とlist2が同レベルになったため、構造の正しさを保つため、自動的に並べ替えが行われます。
 
 さらに、次のような文書があるとします。
 
-```
-# Heading1
-Paragraph
-## Heading2-1
-Paragraph
-## Heading2-2
-Paragraph
-### Heading3
-Paragraph
-```
+	# Heading1
+	Paragraph
+	## Heading2-1
+	Paragraph
+	## Heading2-2
+	Paragraph
+	### Heading3
+	Paragraph
 
 Heading2-2に対して「Move Branch Right」を実行すると、以下のようになります。子であるHeading3の構造レベルが変化していることにご注目ください。
 
-```
-# Heading1
-Paragraph
-## Heading2-1
-Paragraph
-### Heading2-2
-Paragraph
-#### Heading3
-Paragraph
-```
+	# Heading1
+	Paragraph
+	## Heading2-1
+	Paragraph
+	### Heading2-2
+	Paragraph
+	#### Heading3
+	Paragraph
 
 このように、Move Branch Left/Rightは、**親子関係を変化させ（入れ替え）ます**。親子を兄弟に、また兄弟を親子にすることができます。また、Blockquote内Blockquoteを作成するためにも利用できます。
 
@@ -498,68 +478,58 @@ Paragraph
 
 例えば、以下のような文書があるとします。
 
-```
-- list1
-	- list2
-		- list3
-	- list4
-		- list5
-```
+	- list1
+		- list2
+			- list3
+		- list4
+			- list5
 
 list4に対してMove Branch Upを実行すると、以下のようになります。list5が同時に移動します。
 
-```
-- list1
-	- list4
-		- list5
-	- list2
-		- list3
-```
+	- list1
+		- list4
+			- list5
+		- list2
+			- list3
 
 さらに、次のような文書があるとします。
 
-```
-# Heading1
-## Heading2-1
-Paragraph1
-- list1-1
-- list1-2
-Paragraph2
-- list2-1
-- list2-2
-## Heading2-2
-Paragraph3
-```
+	# Heading1
+	## Heading2-1
+	Paragraph1
+	- list1-1
+	- list1-2
+	Paragraph2
+	- list2-1
+	- list2-2
+	## Heading2-2
+	Paragraph3
 
 Paragraph2に対してMove Branch Upを実行すると、以下のようになります。list2-1/list2-2が同時に移動します。
 
-```
-# Heading1
-## Heading2-1
-Paragraph2
-- list2-1
-- list2-2
-Paragraph1
-- list1-1
-- list1-2
-## Heading2-2
-Paragraph3
-```
+	# Heading1
+	## Heading2-1
+	Paragraph2
+	- list2-1
+	- list2-2
+	Paragraph1
+	- list1-1
+	- list1-2
+	## Heading2-2
+	Paragraph3
 
 さらに、Heading2-2に対してMove Branch Upを実行した場合は、以下のようになります。Heading2-2のセクションと、Heading2-1のセクションが、丸ごと入れ替えられます。
 
-```
-# Heading1
-## Heading2-2
-Paragraph3
-## Heading2-1
-Paragraph1
-- list1-1
-- list1-2
-Paragraph2
-- list2-1
-- list2-2
-```
+	# Heading1
+	## Heading2-2
+	Paragraph3
+	## Heading2-1
+	Paragraph1
+	- list1-1
+	- list1-2
+	Paragraph2
+	- list2-1
+	- list2-2
 
 このように、Move Branch Up/Downは、**兄弟同士を入れ替えます**。親子関係にあるアイテム同士を入れ替えるには、Move Branch Left/Rightによって、あらかじめ兄弟関係に変更する必要があります。
 
@@ -665,18 +635,16 @@ Mode記法を利用することで、FoldingTextに追加の機能を与える�
 Todo Modeは、チェックボックス付きのタスクリストを作成することができます。  
 このModeを利用するには、`.Todo` で終わる行の下に、順序なしリストを書きます。例えば、以下の通りです。
 
-```
-## [FoldingText](http://www.foldingtext.com)概論.Todo
-- toc
-- リストのツリー化
-	- HTML変換
-	- コード書き換え
-	- CSS配置
-- 内容
-	- マルチカーソルが有効なコマンドについて
-	- Critique Markup箇所のチェック
-		- Fold記号
-```
+	## [FoldingText](http://www.foldingtext.com)概論.Todo
+	- toc
+	- リストのツリー化
+		- HTML変換
+		- コード書き換え
+		- CSS配置
+	- 内容
+		- マルチカーソルが有効なコマンドについて
+		- Critique Markup箇所のチェック
+			- Fold記号
 
 このリストのフォーマット文字（またはBullets）は、チェックボックスに置き換えられます。  
 チェックボックスをクリックすると、`@done`タグおよび終了日が挿入され、完了タスク扱いになります。完了タスクは、ボックスがチェックされ、打ち消し線が表示されます。
@@ -689,10 +657,8 @@ Todo Modeは、チェックボックス付きのタスクリストを作成す�
 
 また、日時の記録、TagによるFocus等の高度な処理は行えませんが、以下のようなGithub Flavored Markdown形式のタスクリストも作成できます。この際、「Show List Bullets」が適用されないことにご注意ください。
 
-```
-- [ ] 未完了タスク
-- [x] 完了タスク。打ち消しされる。
-```
+	- [ ] 未完了タスク
+	- [x] 完了タスク。打ち消しされる。
 
 ##### 完了タスクのアーカイブ {#archivecompletedtask}
 これは高度な操作ですが、極めて有用なため、例外的に記述します。
@@ -740,17 +706,15 @@ Timer Modeでは、スケジュールを作成することができます。
 
 まとめると、記述例は以下のようになります。
 
-```
-朝.Timer
-	Start : Jun 8, 2014 7:00:00 AM
-	朝食 0.4hour 冷蔵庫
-	風呂 2000second
-	体操 10 minutes
-	洗濯 0.01 days
-```
+	朝.Timer
+		Start : Jun 8, 2014 7:00:00 AM
+		朝食 0.4hour 冷蔵庫
+		風呂 2000second
+		体操 10 minutes
+		洗濯 0.01 days
 
 実際の表示は、以下のスクリーンショットのようになります。
-がお
+
 ![Timer](http://cl.ly/W3fk/image.jpg)
 
 ### Tag {#Tag}
@@ -761,12 +725,10 @@ Tagの直後に`()`を記述すると、その中身が**Value**としてTagに�
 
 例えば、次の文書で1行目の`a`をクリックすると、aaaだけがFocusされます。
 
-```
-aaa @sample(a)
-bbb @sample(b)
-ccc @sample
-ddd @sample2(a)
-```
+	aaa @sample(a)
+	bbb @sample(b)
+	ccc @sample
+	ddd @sample2(a)
 
 なお、以下の単語はアプリケーションに予約されているため、Tag名として利用することができません。Tag名に「含める」ことは可能です。
 
